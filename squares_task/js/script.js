@@ -335,17 +335,34 @@ function game_over_good() {
 function click_button() {
   var rect_answer = document.getElementById("rect_answer").getBoundingClientRect();
   var rect_for = document.getElementById("answer_rect").getBoundingClientRect();
-
-  if ((rect_for.left <= rect_answer.left + 50) && (rect_answer.left <= rect_for.width + rect_for.left + 50)) {
-    if ((rect_for.top <= rect_answer.top + 50) && (rect_answer.top <= rect_for.height + rect_for.top + 50)) {
-      sessionStorage.setItem("level", level + 1);
-      sessionStorage.setItem("name_file", name_file);
-      localStorage.setItem("result_save_str", result_save_str);
-      clearInterval(timer_set);
-      end_level();
-      document.querySelector('#id').onclick = '';
-      setTimeout(() => window.location.reload(), 2000);
+  
+  if ((rect_for.right <= rect_answer.right + 50) && (rect_answer.right <= rect_for.width + rect_for.right + 50)) {
+    if ((rect_for.left <= rect_answer.left + 50) && (rect_answer.left <= rect_for.width + rect_for.left + 50)) {
+      if ((rect_for.bottom <= rect_answer.bottom + 50) && (rect_answer.bottom <= rect_for.height + rect_for.bottom + 50)) {
+        if ((rect_for.top <= rect_answer.top + 50) && (rect_answer.top <= rect_for.height + rect_for.top + 50)) {
+          sessionStorage.setItem("level", level + 1);
+          sessionStorage.setItem("name_file", name_file);
+          localStorage.setItem("result_save_str", result_save_str);
+          clearInterval(timer_set);
+          end_level();
+          document.querySelector('#id').onclick = '';
+          setTimeout(() => window.location.reload(), 2000);
+        } else {
+          attempts_count--;
+          if (attempts_count <= 0) {
+            game_over_bad();
+          }
+          document.getElementById("pops").innerHTML = "Попыток: " + attempts_count;
+        }
+      } else {
+        attempts_count--;
+        if (attempts_count <= 0) {
+          game_over_bad();
+        }
+        document.getElementById("pops").innerHTML = "Попыток: " + attempts_count;
+      }
     } else {
+      end_level_bad()
       attempts_count--;
       if (attempts_count <= 0) {
         game_over_bad();
