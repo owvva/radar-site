@@ -1,0 +1,90 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+
+.button-animation {
+    background: url("../img/ilon1.png");
+    border: none;
+	width: 250px;
+	height: 250px;
+	position: absolute;	
+}
+
+.text1 {
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    opacity: 0;
+}
+
+.text2 {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    opacity: 0;
+}
+
+.rocket {
+    position: absolute;
+	top: 0px;
+	left: 0px;
+    opacity: 0;
+}
+
+.button-animation:hover {
+    background: url("../img/ilon2.png");
+    transition: 2s;
+    opacity: 1;
+}
+
+.button-animation:hover .text1 {
+    transition: 2s;
+    opacity: 1;
+}
+
+.button-animation:active {
+    animation: sepia 12s;
+}
+
+.button-animation:active .text1 {
+    transition: 2s;
+    opacity: 0;
+}
+
+.button-animation:active .text2 {
+    transition: 2s;
+    opacity: 1;
+}
+
+.button-animation:active .rocket {	
+    animation: flyingRocket 12s;
+    opacity: 1;
+    transition: 1s;
+}
+
+
+@keyframes sepia {
+    100% { 
+        filter: sepia(100%); 
+    }
+}
+
+@keyframes flyingRocket {
+    0% { 
+        top: 350px; 
+        left: -400px; 
+    } 
+    100% { 
+        top: -400px; 
+        left: 700px; 
+    }
+}
