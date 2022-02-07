@@ -159,9 +159,9 @@ canvas {
 p button {
     position: absolute;
     font-size: 20px;
-    margin-top:0px;
+    margin-top: 0px;
     left: 37%;
-    top: 8%; /*2*/
+    top: 8%;
 }
 
 #end_level {
@@ -265,4 +265,45 @@ p {
     text-align: center;
     margin-bottom: 5px;
     margin-top: 1px;
+}
+
+@media (max-width: 1300px) {
+    #time, #pops {
+        position: absolute;
+        text-align: left;
+        font-size: 16px;
+        margin-top: 0px;
+        left: 75%;
+    }
+
+    #level {
+        position: absolute;
+        text-align: left;
+        font-size: 16px;
+        margin-top: 0px;
+        right: 75%;
+    }
+
+    p button {
+        position: absolute;
+        font-size: 14px;
+        margin-top: 0px;
+        left: 32%;
+        top: 8%;
+    }
+
+    #answer_rect {
+        position: absolute;
+        left: 40%;
+    }
+
+    #main_rect {
+        position: absolute;
+        left: 55%;
+    }
+
+    #game {
+        width: 60%;
+        height: auto;
+    }
 }
